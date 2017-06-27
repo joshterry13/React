@@ -6,18 +6,22 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as wineActions from '../actions/wineActions';
 //Components
-import Wine from '../components/wine/Wine';
+import WineList from '../components/wine/WineList';
 
 class WineScreen extends Component {
     constructor(props) {
         super(props);
     }
 
+    componentDidMount(){
+        this.props.actions.fetchWines()
+    }
+
     render() {
-        //const {} = this.props;
+        const { wines } = this.props;
 
         return (
-            <Wine />
+            <WineList wines={wines} />
         );
     }
 }
@@ -26,7 +30,7 @@ WineScreen.propTypes = {};
 
 function mapStateToProps(state) {
     return {
-        state: state,
+        wines: state.wine.wines,
     };
 }
 

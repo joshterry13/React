@@ -3,9 +3,18 @@ import React from 'react';
 import {} from 'prop-types';
 //Components
 
-const Wine = ({}) => {
+
+
+const Wine = ({wine}) => {
+    console.log(wine)
+
     return (
-        <div> asdf </div>
+        <div>
+            <p>{wine.name}</p>
+            <p>{wine.rating}</p>
+
+
+        </div>
     );
 };
 
